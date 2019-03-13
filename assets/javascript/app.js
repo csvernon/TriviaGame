@@ -1,5 +1,5 @@
 var i = 1;
-var time = 5;
+var time = 15;
 var intervalId;
 var correct;
 var ans1;
@@ -8,6 +8,7 @@ var ans3;
 var ans4;
 var questionRan = "no"
 var wasTrue = "no";
+var wasFalse = "no";
 var wins = 0;
 var losses= 0;
 var noAnswer = 0;
@@ -17,7 +18,7 @@ $("#start").on("click", function(event) {
 
 });
 function question1() {
-    time = 5;
+    time = 15;
     $("#top").text("Who is the Mad Titan?");
     $(".ans1").text("⦿ Loki");
     ans1 = "Loki";
@@ -31,7 +32,7 @@ function question1() {
     run();
 }
 function question2() {
-    time = 5;
+    time = 15;
     $("#top").text("Where was the Soul Stone?");
     $(".ans1").text("⦿ Knowhere");
     ans1 = "Knowhere";
@@ -45,7 +46,7 @@ function question2() {
     run();
 }
 function question3() {
-    time = 5;
+    time = 15;
     $("#top").text("Spider-Man and Starlord bond over which movie?");
     $(".ans1").text("⦿ Footloose");
     ans1 = "Footloose";
@@ -59,7 +60,7 @@ function question3() {
     run();
 }
 function question4() {
-    time = 5;
+    time = 15;
     $("#top").text("What is Agent Coulson's first name?");
     $(".ans1").text("⦿ Steve");
     ans1 = "Steve";
@@ -73,7 +74,7 @@ function question4() {
     run();
 }
 function question5() {
-    time = 5;
+    time = 15;
     $("#top").text("What is Captain Marvel's Name?");
     $(".ans1").text("⦿ Pepper Potts");
     ans1 = "Pepper Potts";
@@ -87,7 +88,7 @@ function question5() {
     run();
 }
 function question6() {
-    time = 5;
+    time = 15;
     $("#top").text("Who is Bruce Banner?");
     $(".ans1").text("⦿ Ironman");
     ans1 = "Ironman";
@@ -101,7 +102,7 @@ function question6() {
     run();
 }
 function question7() {
-    time = 5;
+    time = 15;
     $("#top").text("What color is the Time Stone?");
     $(".ans1").text("⦿ Red");
     ans1 = "Red";
@@ -115,7 +116,7 @@ function question7() {
     run();
 }
 function question8() {
-    time = 5;
+    time = 15;
     $("#top").text("Who was Captain America's sidekick during World War II?");
     $(".ans1").text("⦿ Steve Rodgers");
     ans1 = "Steve Rodgers";
@@ -145,8 +146,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
-            wasTrue = "no";
-            losses++;
+            wasFalse = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
         }
@@ -166,8 +166,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
-            wasTrue = "no";
-            losses++;
+            wasFalse = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
         }
@@ -188,8 +187,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
-            wasTrue = "no";
-            losses++;
+            wasFalse = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
         }
@@ -210,8 +208,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
-            wasTrue = "no";
-            losses++;
+            wasFalse = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
     
@@ -259,7 +256,7 @@ function run() {
 
     // reset timer
     questionRan = "yes"
-    time = 5;
+    time = 15;
     $(".timer").text("Time remaining: " + time + " seconds");
 
   }
@@ -269,10 +266,16 @@ function run() {
         if (questionRan === "yes"){
             i++;
             questionRan = "no";
+            if (wasTrue === "yes"){
+                wins++;
+                wasTrue = "no";
+            }
+            if (wasFalse === "yes"){
+                losses++;
+                wasFalse = "no";
+            }
         }
-        if (wasTrue === "yes"){
-            wins++;
-        }
+  
       if (i === 2) {
         question2();
       } else if (i === 3){
@@ -300,10 +303,27 @@ function run() {
   }
 
   function gameover (){
-    $("#top").text("You're in the End Game now");
+      blank();
+    $("#top").text("YOU'RE IN THE END GAME NOW");
     $(".timer").text("Results");
-    $(".ans1").text("Correct: " + wins);
-    $(".ans2").text("Incorrect: " + losses);
-    $(".ans3").text("Unanswered: " + noAnswer);
-    $(".ans4").text("Start Over?");
-  }
+    $(".correct").text("Correct: " + wins);
+    $(".incorrect").text("Incorrect: " + losses);
+    $(".unanswered").text("Unanswered: " + noAnswer);
+    $(".reset").text("Start Over?");
+    $(".reset").on("click", function(event) {
+        i = 1;
+        time = 15;
+        questionRan = "no"
+        wasTrue = "no";
+        wasFalse = "no";
+        wins = 0;
+        losses= 0;  
+        noAnswer = 0;
+        $(".correct").text("");
+        $(".incorrect").text("");
+        $(".unanswered").text("");
+        $(".reset").text("");
+        question1();
+        
+  })
+}
