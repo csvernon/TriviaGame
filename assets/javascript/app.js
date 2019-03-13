@@ -6,6 +6,8 @@ var ans1;
 var ans2;
 var ans3;
 var ans4;
+var questionRan = "no"
+var wasTrue = "no";
 var wins = 0;
 var losses= 0;
 var noAnswer = 0;
@@ -26,7 +28,6 @@ function question1() {
     $(".ans4").text("⦿ Thanos");
     ans4 = "Thanos";
     correct = "Thanos";
-    i++;
     run();
 }
 function question2() {
@@ -41,7 +42,6 @@ function question2() {
     $(".ans4").text("⦿ Valhalla");
     ans4 = "Valhalla";
     correct = "Vormir";
-    i++;
     run();
 }
 function question3() {
@@ -56,7 +56,6 @@ function question3() {
     $(".ans4").text("⦿ Grease");
     ans4 = "Grease";
     correct = "Footloose";
-    i++;
     run();
 }
 function question4() {
@@ -71,12 +70,10 @@ function question4() {
     $(".ans4").text("⦿ Phil");
     ans4 = "Phil";
     correct = "Phil";
-    i++;
     run();
 }
 function question5() {
     time = 5;
-    time = 6;
     $("#top").text("What is Captain Marvel's Name?");
     $(".ans1").text("⦿ Pepper Potts");
     ans1 = "Pepper Potts";
@@ -87,7 +84,6 @@ function question5() {
     $(".ans4").text("⦿ Natalia Romanova");
     ans4 = "Natalia Romanova";
     correct = "Carol Danvers";
-    i++;
     run();
 }
 function question6() {
@@ -102,7 +98,6 @@ function question6() {
     $(".ans4").text("⦿ Captain America");
     ans4 = "Captain America";
     correct = "The Hulk";
-    i++;
     run();
 }
 function question7() {
@@ -117,7 +112,6 @@ function question7() {
     $(".ans4").text("⦿ Green");
     ans4 = "Green";
     correct = "Green";
-    i++;
     run();
 }
 function question8() {
@@ -132,7 +126,6 @@ function question8() {
     $(".ans4").text("⦿ Sam Wilson");
     ans4 = "Sam Wilson";
     correct = "Bucky Barnes";
-    i++;
     run();
 }
 function run() {
@@ -144,7 +137,7 @@ function run() {
             
         if (ans1 == correct){
             $("#top").text("You are correct");
-            wins = wins + 1;
+            wasTrue = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/3oEdv3Ul8g6BCngQ36/giphy.gif" style="height: 200px;right: 16%;"/>');
     
@@ -152,6 +145,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
+            wasTrue = "no";
             losses++;
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
@@ -165,13 +159,14 @@ function run() {
             
         if (ans2 == correct){
             $("#top").text("You are correct");
-            wins = wins + 1;
+            wasTrue = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/3oEdv3Ul8g6BCngQ36/giphy.gif" style="height: 200px;right: 16%;"/>');
     
         }
         else {
             $("#top").text("Incorrect, better luck next time");
+            wasTrue = "no";
             losses++;
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
@@ -185,7 +180,7 @@ function run() {
             
         if (ans3 == correct){
             $("#top").text("You are correct");
-            wins = wins + 1;
+            wasTrue = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/3oEdv3Ul8g6BCngQ36/giphy.gif" style="height: 200px;right: 16%;"/>');
     
@@ -193,6 +188,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
+            wasTrue = "no";
             losses++;
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
@@ -206,7 +202,7 @@ function run() {
             
         if (ans4 == correct){
             $("#top").text("You are correct");
-            wins = wins + 1;
+            wasTrue = "yes";
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/3oEdv3Ul8g6BCngQ36/giphy.gif" style="height: 200px;right: 16%;"/>');
     
@@ -214,6 +210,7 @@ function run() {
         }
         else {
             $("#top").text("Incorrect, better luck next time");
+            wasTrue = "no";
             losses++;
             blank();
             $(".giffy").html('<img src="https://media.giphy.com/media/6bdgwW6B0ooer3r8AZ/giphy.gif" style="height: 200px;right: 16%;"/>');
@@ -261,6 +258,7 @@ function run() {
     clearInterval(intervalId);
 
     // reset timer
+    questionRan = "yes"
     time = 5;
     $(".timer").text("Time remaining: " + time + " seconds");
 
@@ -268,6 +266,13 @@ function run() {
 
   function next(){
     $(".giffy").html("");
+        if (questionRan === "yes"){
+            i++;
+            questionRan = "no";
+        }
+        if (wasTrue === "yes"){
+            wins++;
+        }
       if (i === 2) {
         question2();
       } else if (i === 3){
