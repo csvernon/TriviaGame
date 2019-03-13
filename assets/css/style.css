@@ -1,0 +1,77 @@
+#backgroundImg1{
+    height: 100%;
+    
+}
+body{
+height: 100%;
+background-image: url('https://wallpapersite.com/images/wallpapers/avengers-endgame-3203x1872-avengers-4-hd-16872.jpg');
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header{
+    position:relative;
+}
+.main {
+    height: 500px;
+    width: 1000px;
+    border: white dashed 10px;
+    color: white;
+    text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+    font-size: 30px;
+    top:50px;
+}
+.timer {
+    text-align: center;
+}
+.answer{
+    text-align: center;
+    position:relative;
+    left:42%;
+    font-weight: bold;
+}
+#start{
+    text-align: center;
+    position:relative;
+    top:50%; 
+    left:43%;
+}
+#top{
+    font-size: 60px;
+    margin-top:30px;
+}
+h1{ 
+    font-family: arial;
+    font-size: 250px;
+    background: linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h2{
+    font-size:100px;
+    color: crimson;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;    position:absolute;
+    bottom:1vh;
+    left:30vw;
+    transform: rotateZ(-20deg) rotateY(30deg);
+    font-family: fantasy;   
+}
+img{
+    max-width: 500px;
+    max-height: 350px;
+    position: relative;
+    padding-right: 100px;
+}
+#hero{
+    color: black;
+    position:absolute;
+    bottom:20px;    
+    font-size: 50px;
+    width:fit-content;
+    display:inline-block;
+}
+#images{
+    height: 450px;
+    width: 400px;
+    bottom: 20px;
+}

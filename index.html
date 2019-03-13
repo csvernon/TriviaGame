@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia: The Avengers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
+    <script src="assets/javascript/app.js" async></script>
+</head>
+<body>
+    <div class="container-fluid">
+       <div class="row">
+           <div class="header container-fluid text-center">
+               <h1>TRIVIA</h1>
+               <h2>Avengers</h2>
+           </div>
+       </div>
+   </div>
+   <div id="backgroundImg1"></div>
+   <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-sm-12 col-md-10 col-lg-8 main">
+                <div class="container-fluid ">
+                    <div class="container-fluid text-center"id="top"><h3>Are you prepared? Click Start to begin!</h3></div>
+                    <div class="timer">Time Remaining: 30 seconds</div>
+                    <h3 class="container-fluid text-center blanks"></h3>
+                    <button id="start">START</button>
+                    <div class="row ans1 answer"></div>
+                    <div class="row ans2 answer"></div>   
+                    <div class="row ans3 answer"></div>
+                    <div class="row ans4 answer"></div>   
+                    <div class="container images">  
+                        <div><div id="images" class="container-fluid"></div>
+                        <div class="cap" id='hero'></div></div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <audio autoplay src="./assets/Bonnie Tyler - I Need a Hero.m4a" controls autoplay></audio>
+</body>
+</html>
