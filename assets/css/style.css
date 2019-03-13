@@ -30,6 +30,10 @@ background-image: url('https://wallpapersite.com/images/wallpapers/avengers-endg
     left:42%;
     font-weight: bold;
 }
+.answer:hover { 
+    color: black;
+    cursor: pointer;
+  }
 #start{
     text-align: center;
     position:relative;
