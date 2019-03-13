@@ -84,8 +84,17 @@ function run() {
       stop();
         losses++
       //  Alert the user that time is up.
-      $("#top").text("Incorrect, better luck next time");
-      next();
+      $("#top").text("You're out of time, you'll have to be faster");
+      $(".ans1").text("");
+      $(".ans2").html('<img src="https://media1.tenor.com/images/5c604725daf2e673c77cc66bd69b5510/tenor.gif?itemid=5150380" style="height: 200px;right: 16%;"/>');
+      $(".ans3").text("");
+      $(".ans4").text("");
+
+
+
+      var windowTimeout = setTimeout(function() {
+        next();
+      }, 5000);
       
     }
   }
@@ -110,10 +119,13 @@ function run() {
     if (ans1 == correct){
         $("#top").text("You are correct");
         wins++;
+        blank();
+
     }
     else {
         $("#top").text("Incorrect, better luck next time");
         losses++;
+        blank();
     }
     var windowTimeout = setTimeout(function() {
         next();
@@ -125,10 +137,13 @@ function run() {
     if (ans2 == correct){
         $("#top").text("You are correct");
         wins++;
+        blank();
     }
     else {
         $("#top").text("Incorrect, better luck next time");
         losses++;
+        blank();
+
     }
     var windowTimeout = setTimeout(function() {
         next();
@@ -140,10 +155,14 @@ function run() {
     if (ans3 == correct){
         $("#top").text("You are correct");
         wins++;
+        blank();
+
     }
     else {
         $("#top").text("Incorrect, better luck next time");
         losses++;
+        blank();
+
     }
     var windowTimeout = setTimeout(function() {
         next();
@@ -155,10 +174,14 @@ function run() {
     if (ans4 == correct){
         $("#top").text("You are correct");
         wins++;
+        blank();
+
     }
     else {
         $("#top").text("Incorrect, better luck next time");
         losses++;
+        blank();
+
     }
     var windowTimeout = setTimeout(function() {
         next();
@@ -170,8 +193,19 @@ function run() {
         question2();
     
       } else if (i === 3){
-        question3()
-    };
+        question3();
+    }
+       else if (i === 4){
+        question4();
+    }
+       else if (i === 5){
+        question5();
+    }
       }
     
-  
+  function blank (){
+    $(".ans1").text("");
+    $(".ans2").text("");
+    $(".ans3").text("");
+    $(".ans4").text("");
+  }
