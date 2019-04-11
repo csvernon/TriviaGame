@@ -3,11 +3,12 @@
     
 }
 body{
-height: 100%;
 background-image: url('https://wallpapersite.com/images/wallpapers/avengers-endgame-3203x1872-avengers-4-hd-16872.jpg');
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
+
 }
 .header{
     position:relative;
